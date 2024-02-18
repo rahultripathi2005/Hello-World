@@ -1,0 +1,74 @@
+
+#How to execute robo tests from the cmd 
+#C:\Users\e3016804\eclipse-workspace\myFirstRobot>robot -t MySecondTest tests\TestLogs.robot
+
+#C:\Users\e3016804\eclipse-workspace\myFirstRobot>robot tests\TestLogs.robot
+
+TestLogs
+==============================================================================
+MyFirstTest                                                           | PASS |
+------------------------------------------------------------------------------
+MySecondTest                                                          | PASS |
+------------------------------------------------------------------------------
+MyThirdTest                                                           | PASS |
+------------------------------------------------------------------------------
+TestLogs                                                              | PASS |
+3 critical tests, 3 passed, 0 failed
+
+=========================================================================================
+#This command helps in setting up the tags in the runtime during Robo test.
+
+C:\Users\e3016804\eclipse-workspace\myFirstRobot>robot -t MySecondTest  --settag=regression1 tests\TestLogs.robot
+==============================================================================
+TestLogs
+==============================================================================
+MySecondTest                                                          | PASS |
+------------------------------------------------------------------------------
+TestLogs                                                              | PASS |
+1 critical test, 1 passed, 0 failed
+1 test total, 1 passed, 0 failed
+==============================================================================
+Output:  C:\Users\e3016804\eclipse-workspace\myFirstRobot\output.xml
+Log:     C:\Users\e3016804\eclipse-workspace\myFirstRobot\log.html
+Report:  C:\Users\e3016804\eclipse-workspace\myFirstRobot\report.html
+
+C:\Users\e3016804\eclipse-workspace\myFirstRobot>
+
+# How to run specific tests using tags only .
+C:\Users\e3016804\eclipse-workspace\myFirstRobot>robot --include sanity  tests\TestLogs.robot
+
+C:\Users\e3016804\eclipse-workspace\myFirstRobot>cd C:\Users\e3016804\eclipse-workspace\myFirstRobot\Tests
+
+C:\Users\e3016804\eclipse-workspace\myFirstRobot\Tests>
+C:\Users\e3016804\eclipse-workspace\myFirstRobot\Tests>cd..
+
+C:\Users\e3016804\eclipse-workspace\myFirstRobot>robot --include sanity  tests\TestLogs.robot
+==============================================================================
+TestLogs
+==============================================================================
+MyFirstTest                                                           | PASS |
+------------------------------------------------------------------------------
+MyThirdTest                                                           | PASS |
+------------------------------------------------------------------------------
+TestLogs                                                              | PASS |
+2 critical tests, 2 passed, 0 failed
+2 tests total, 2 passed, 0 failed
+==============================================================================
+Output:  C:\Users\e3016804\eclipse-workspace\myFirstRobot\output.xml
+Log:     C:\Users\e3016804\eclipse-workspace\myFirstRobot\log.html
+Report:  C:\Users\e3016804\eclipse-workspace\myFirstRobot\report.html
+
+# This command will execute using regular expresson for all tests in the suite with smoke as tags
+C:\Users\e3016804\eclipse-workspace\myFirstRobot>robot --include s*  tests\TestLogs.robot
+==============================================================================
+TestLogs
+==============================================================================
+MyFirstTest                                                           | PASS |
+------------------------------------------------------------------------------
+MySecondTest                                                          | PASS |
+------------------------------------------------------------------------------
+MyThirdTest                                                           | PASS |
+------------------------------------------------------------------------------
+TestLogs                                                              | PASS |
+
+#C:\Users\e3016804\eclipse-workspace\myFirstRobot>robot --exclude rahul  tests\TestLogs.robot
